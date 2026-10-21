@@ -6,15 +6,6 @@ export interface EquipmentItem {
   alt: string;
 }
 
-export interface SupplementItem {
-  id: string;
-  t: string;
-  d: string;
-  p: string;
-  img: string;
-  alt: string;
-}
-
 export interface TrainerItem {
   id: string;
   t: string;
@@ -28,6 +19,8 @@ export interface PlanItem {
   id: string;
   t: string;
   p: string;
+  duration: string;
+  description: string;
   hot?: boolean;
 }
 
@@ -35,188 +28,237 @@ export interface ReviewItem {
   id: string;
   q: string;
   n: string;
+  rating: number;
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
 }
 
 export interface SiteData {
   name: string;
+  subName: string;
   headline: string;
   tagline: string;
   about: string;
+  historyText: string;
   heroImg: string;
   aboutImg: string;
-  mapImg: string;
+  mapEmbedUrl: string;
   stats: [string, string][];
   ticker: string[];
   equipment: EquipmentItem[];
-  supplements: SupplementItem[];
   trainers: TrainerItem[];
   plans: PlanItem[];
   planFeatures: string[];
   reviews: ReviewItem[];
-  contact: string;
-  social: string[];
+  faqs: FaqItem[];
+  contact: {
+    address: string;
+    phone: string;
+    whatsapp: string;
+    timings: string;
+    justdialRating: string;
+    payments: string[];
+    features: string[];
+  };
+  social: { name: string; url: string }[];
 }
 
 export const initialSiteData: SiteData = {
-  name: "IRON PULSE 3D",
+  name: "BABA GYM",
+  subName: "THE MUSCLE DOPE",
   headline: "FORGE YOUR<br>ULTIMATE PHYSIQUE",
   tagline:
-    "Next-generation 24/7 athletic performance center equipped with Olympic steel, smart biomechanics, and elite recovery suites.",
+    "Gwalior's legendary hardcore training destination since 2006. Equipped with professional steel, heavy free weights, CrossFit facilities, and elite coaching.",
   about:
-    "At Iron Pulse 3D, we combine raw intensity with cutting-edge training technology. Designed for athletes, lifters, and fitness enthusiasts who refuse average results, our 15,000 sq. ft. facility features custom-calibrated equipment, climate-controlled turf zones, and world-class personal training.",
+    "Founded in 2006, Baba Gym – The Muscle Dope has been the cornerstone of bodybuilding and strength training in Gwalior. Located right in front of JC Mills College in Birla Nagar, we provide a raw, high-energy environment for serious lifters, athletes, and fitness enthusiasts of all levels.",
+  historyText:
+    "Established over 18 years ago, Baba Gym started with a singular mission: to build a temple of iron where dedication meets results. From humble beginnings to Gwalior's most trusted fitness sanctuary with 157+ verified Justdial reviews and a 4.5/5 rating, our commitment to authentic strength and community remains unbreakable.",
   heroImg:
     "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80",
   aboutImg:
-    "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1000&q=80",
-  mapImg:
-    "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1000&q=80",
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.892416!2d78.1825!3d26.2295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMlDCsDEzJzQ2LjIiTiA3OMKwMTAnNTcuMCJF!5e0!3m2!1sen!2sin!4v1630000000000!5m2!1sen!2sin",
   stats: [
-    ["15K+", "Sq. Ft. Floor"],
-    ["24/7", "Member Access"],
-    ["100%", "Custom Steel"],
+    ["2006", "Established Year"],
+    ["4.5★", "Justdial Rating (157+ Reviews)"],
+    ["18+", "Years of Excellence"],
+    ["100%", "Hardcore Results"],
   ],
-  ticker: ["Strength", "Conditioning", "Hypertrophy", "Recovery", "Community"],
+  ticker: [
+    "Strength Training",
+    "Bodybuilding",
+    "Cardio Zone",
+    "Personal Training",
+    "CrossFit Facilities",
+    "Unisex Gym",
+    "Birla Nagar, Gwalior",
+  ],
   equipment: [
     {
       id: "eq-1",
-      t: "Olympic Power Racks",
-      d: "Heavy-duty laser-cut steel racks with safety bars, band pegs, and multi-grip pull-up stations.",
+      t: "Heavy Olympic Power Racks",
+      d: "Commercial-grade steel power cages equipped with safety spotter arms and chin-up bars for squats and heavy presses.",
       img: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80",
       alt: "Olympic power rack with loaded barbell and weight plates",
     },
     {
       id: "eq-2",
-      t: "Dual Cable Crossover",
-      d: "Pin-selected dual pulley system with adjustable height column for multi-plane movement patterns.",
-      img: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80",
-      alt: "Dual cable crossover machine inside modern gym floor",
-    },
-    {
-      id: "eq-3",
-      t: "Smart Cardio Zone",
-      d: "Touchscreen treadmills, curved self-powered runners, stairmasters, and concept2 rowers.",
-      img: "https://images.unsplash.com/photo-1576678927484-cc909957088c?auto=format&fit=crop&w=800&q=80",
-      alt: "Row of high-tech treadmill machines in gym cardio suite",
-    },
-    {
-      id: "eq-4",
-      t: "Functional Turf Rig",
-      d: "30-meter sprint turf track, sled push tracks, battle ropes, slam balls, and cast iron kettlebells.",
-      img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
-      alt: "Functional turf area with kettlebells and workout equipment",
-    },
-    {
-      id: "eq-5",
-      t: "Hammer Strength Line",
-      d: "Iso-lateral plate-loaded leg press, hack squat, chest press, and incline row machines.",
+      t: "Plate-Loaded Strength Machines",
+      d: "Hammer Strength and iso-lateral machines designed for maximum muscle isolation and hypertrophic overload.",
       img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80",
       alt: "Plate loaded heavy leg press and strength machine",
     },
     {
+      id: "eq-3",
+      t: "Professional Dumbbells & Barbells",
+      d: "Extensive rack of cast iron and urethane dumbbells ranging from 2.5kg to 50kg+ with Olympic EZ-curl bars.",
+      img: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80",
+      alt: "Dumbbell rack in gym floor",
+    },
+    {
+      id: "eq-4",
+      t: "CrossFit & Functional Turf",
+      d: "Dedicated functional training turf for sled pushes, battle ropes, agility ladders, and core conditioning.",
+      img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+      alt: "Functional turf area with kettlebells and battle ropes",
+    },
+    {
+      id: "eq-5",
+      t: "Advanced Cardio Suite",
+      d: "High-performance treadmills, upright stationary bikes, and elliptical trainers for fat burning and stamina.",
+      img: "https://images.unsplash.com/photo-1576678927484-cc909957088c?auto=format&fit=crop&w=800&q=80",
+      alt: "Row of treadmill machines in gym cardio suite",
+    },
+    {
       id: "eq-6",
-      t: "Infrared Sauna & Recovery",
-      d: "Therapeutic infrared heat recovery cabins, cold plunge tubs, and Theragun massage stations.",
+      t: "Dedicated Stretching & Core Area",
+      d: "Comfortable mat zone with foam rollers, resistance bands, and stability balls for warm-ups and recovery.",
       img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
-      alt: "Luxury wellness sauna and contrast plunge recovery area",
-    },
-  ],
-  supplements: [
-    {
-      id: "sp-1",
-      t: "100% Whey Isolate",
-      d: "25g pure ultra-filtered whey protein isolate with added digestive enzymes and zero sugar.",
-      p: "$59.99",
-      img: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=800&q=80",
-      alt: "100 percent Whey Isolate protein tub",
-    },
-    {
-      id: "sp-2",
-      t: "HyperDrive Pre-Workout",
-      d: "Clinical strength pre-workout formula with 6g L-Citrulline, 3.2g Beta-Alanine, and caffeine.",
-      p: "$44.99",
-      img: "https://images.unsplash.com/photo-1579722820308-d74e571900a9?auto=format&fit=crop&w=800&q=80",
-      alt: "Pre-workout energy formula container",
-    },
-    {
-      id: "sp-3",
-      t: "Pure Creatine Monohydrate",
-      d: "500g unflavored 100% micronized pharmaceutical grade creatine for strength and power output.",
-      p: "$29.99",
-      img: "https://images.unsplash.com/photo-1550572017-edd951b55104?auto=format&fit=crop&w=800&q=80",
-      alt: "Micronized creatine monohydrate tub",
-    },
-    {
-      id: "sp-4",
-      t: "Intra-Workout BCAA & Hydration",
-      d: "2:1:1 branched-chain amino acids infused with coconut water electrolytes and Himalayan pink salt.",
-      p: "$34.99",
-      img: "https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=800&q=80",
-      alt: "Intra-workout BCAA drink shaker and tub",
+      alt: "Stretching and recovery area",
     },
   ],
   trainers: [
     {
       id: "tr-1",
-      t: "Marcus Vance",
-      d: "Head Strength & Power Coach",
-      c: "CSCS • 10+ Yrs Bodybuilding & Powerlifting",
+      t: "Baba Coach (Head Trainer)",
+      d: "Master Bodybuilding & Strength Coach",
+      c: "18+ Yrs Experience • Contest Prep & Mass Building Specialist",
       img: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=800&q=80",
-      alt: "Marcus Vance strength coach portrait",
+      alt: "Head strength coach portrait",
     },
     {
       id: "tr-2",
-      t: "Elena Rostova",
-      d: "Functional Mobility Specialist",
-      c: "NASM CPT • Mobility Specialist & Pilates Master",
-      img: "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=800&q=80",
-      alt: "Elena Rostova athletic trainer portrait",
+      t: "Vikram Singh",
+      d: "Senior Functional & CrossFit Trainer",
+      c: "Certified Fitness Coach • Agility & Fat Loss Expert",
+      img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
+      alt: "Senior fitness trainer portrait",
     },
     {
       id: "tr-3",
-      t: "David Sterling",
-      d: "Hypertrophy & Physique Lead",
-      c: "IFBB Pro • Contest Prep & Macro Nutrition Specialist",
-      img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
-      alt: "David Sterling hypertrophy coach portrait",
-    },
-    {
-      id: "tr-4",
-      t: "Maya Lin",
-      d: "HIIT & Conditioning Specialist",
-      c: "EXOS Performance Specialist • Track & Field Coach",
-      img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80",
-      alt: "Maya Lin athletic conditioning trainer portrait",
+      t: "Rahul Sharma",
+      d: "Hypertrophy & Personal Training Lead",
+      c: "Sports Nutritionist • Transformation Specialist",
+      img: "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=800&q=80",
+      alt: "Personal training specialist portrait",
     },
   ],
   plans: [
-    { id: "pl-1", t: "Flex Monthly Pass", p: "$49/mo" },
-    { id: "pl-2", t: "Pro Athlete Annual", p: "$39/mo", hot: true },
-    { id: "pl-3", t: "VIP All-Access + Recovery", p: "$79/mo" },
+    {
+      id: "pl-1",
+      t: "Monthly Standard Pass",
+      p: "Contact for Pricing",
+      duration: "1 Month",
+      description: "Full access to all gym equipment, weight training floor, and cardio machines during operating hours.",
+    },
+    {
+      id: "pl-2",
+      t: "Quarterly Pro Membership",
+      p: "Contact for Pricing",
+      duration: "3 Months",
+      description: "Includes complete gym access, customized workout guidance, and diet consultation.",
+      hot: true,
+    },
+    {
+      id: "pl-3",
+      t: "Annual Champion Pass",
+      p: "Contact for Pricing",
+      duration: "12 Months",
+      description: "Best value for dedicated athletes. Full VIP access, priority locker availability, and personal training support.",
+    },
+    {
+      id: "pl-4",
+      t: "Personal Training Package",
+      p: "Contact for Pricing",
+      duration: "1-on-1 Coaching",
+      description: "Dedicated personal coaching, customized meal plans, progressive overload tracking, and one-on-one supervision.",
+    },
   ],
   planFeatures: [
-    "24/7 Full Keycard Gym Access",
-    "All Olympic Platforms & Heavy Racks",
-    "Complimentary Towel & Locker Service",
-    "Access to Member App & Workout Logs",
+    "Full Gym Access (Strength & Cardio)",
+    "Expert Floor Trainers on Duty",
+    "Clean Locker & Changing Rooms",
+    "CrossFit & Functional Training Zones",
+    "Flexible Timings (Morning & Evening Batches)",
   ],
   reviews: [
     {
       id: "rv-1",
-      q: "The dumbbell selection and plate-loaded leg machines are top tier. Best environment for serious lifters in the city.",
-      n: "Alex Rivera – Competitive Powerlifter",
+      q: "Baba Gym is the absolute best gym in Birla Nagar! The atmosphere is super energetic and the equipment is top notch for heavy lifting.",
+      n: "Amit Kushwah",
+      rating: 5,
     },
     {
       id: "rv-2",
-      q: "Incredible 24/7 facility! The infrared sauna and contrast plunge after a heavy leg workout is a total gamechanger.",
-      n: "Sarah Jenkins – Marathon Runner",
+      q: "Been training here for over a year. The trainers are very knowledgeable and supportive. Great place for bodybuilding and fitness.",
+      n: "Rohit Tomar",
+      rating: 5,
     },
     {
       id: "rv-3",
-      q: "Coach Marcus helped me fix my deadlift technique and add 40lbs to my total in 12 weeks. High energy atmosphere!",
-      n: "Michael Chang – Member since 2024",
+      q: "Genuine hardcore gym with all modern machines and great crowd. Highly recommended for anyone serious about fitness in Gwalior.",
+      n: "Pankaj Rathore",
+      rating: 4.5,
     },
   ],
-  contact:
-    "742 Iron Pulse Boulevard<br>Metro District, NY 10001<br>Phone: (555) 382-9000<br>Hours: 24 Hours / 7 Days A Week",
-  social: ["Instagram", "Facebook", "YouTube"],
+  faqs: [
+    {
+      q: "What are the gym operating hours?",
+      a: "We are open Monday to Saturday in two convenient shifts: Morning 5:00 AM – 10:30 AM and Evening 4:00 PM – 10:00 PM. Sundays are closed.",
+    },
+    {
+      q: "Do you offer personal training?",
+      a: "Yes! We have experienced certified trainers providing 1-on-1 personal training, customized diet plans, and bodybuilding guidance.",
+    },
+    {
+      q: "Is Baba Gym suitable for beginners?",
+      a: "Absolutely. Whether you are a complete beginner or an advanced powerlifter, our floor trainers guide you through proper form and customized workout routines.",
+    },
+    {
+      q: "What payment methods are accepted?",
+      a: "We accept UPI (PhonePe, Google Pay, Paytm), cash, and direct bank transfers for your convenience.",
+    },
+    {
+      q: "Where is Baba Gym located?",
+      a: "We are located at House No. 25, Lane No. 3, in front of JC Mills College, Birla Nagar, Gwalior, MP 474004.",
+    },
+  ],
+  contact: {
+    address: "House No. 25, Lane No. 3, in front of JC Mills College, Birla Nagar, Gwalior, MP 474004",
+    phone: "+91 95890 01117",
+    whatsapp: "+919589001117",
+    timings: "Mon–Sat: 5:00–10:30 AM & 4:00–10:00 PM (Sun Closed)",
+    justdialRating: "4.5 / 5.0 (157+ Justdial Reviews)",
+    payments: ["UPI", "PhonePe", "Google Pay", "Cash"],
+    features: ["Unisex Gym", "Wheelchair Accessible", "Airy & Ventilated Floor", "Expert Trainers"],
+  },
+  social: [
+    { name: "Justdial", url: "https://www.justdial.com" },
+    { name: "Instagram", url: "https://instagram.com" },
+    { name: "Facebook", url: "https://facebook.com" },
+  ],
 };
