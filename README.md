@@ -1,11 +1,43 @@
-<div align="center">
+# Gym 3D Interactive Website Prototype
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A modern 3D Gym Website prototype converted to a Vite + React + TypeScript project, fully configured for local development, GitHub hosting, and one-click Vercel deployment.
 
-  <h1>Built with AI Studio</h2>
+## Features
+- **3D Interactive Dumbbell**: Built with Three.js WebGL, dynamically traveling and rotating across sections as you scroll.
+- **GSAP & ScrollTrigger Animations**: Smooth staggered reveals, parallax image effects, hero zoom-outs, and responsive marquee ticker.
+- **Fully Responsive Layout**: Built with Tailwind CSS and custom design rules, optimized for desktop, tablet, and mobile browsers.
+- **Zero CDN Dependencies**: All packages installed locally via npm (`three`, `gsap`, `@types/three`, etc.).
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Getting Started
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### Installation
+```bash
+npm install
+```
 
-</div>
+### Development
+Start the local Vite dev server on port 3000:
+```bash
+npm run dev
+```
+
+### Production Build
+Build for production with TypeScript compilation and Vite bundler:
+```bash
+npm run build
+```
+
+### Preview Build
+Preview the production build locally:
+```bash
+npm run preview
+```
+
+## Deployment
+
+### Vercel
+1. Push this repository to GitHub.
+2. Import the repository into [Vercel](https://vercel.com).
+3. Framework Preset: **Vite**.
+4. Build Command: `npm run build`.
+5. Output Directory: `dist`.
